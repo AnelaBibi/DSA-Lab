@@ -1,0 +1,107 @@
+package queueaslinkedlist;
+
+/**
+ *
+ * @author AWAN
+ */
+public class QueueAsLinkedList {
+    
+    Node front ;
+    Node rear ;
+    int size;
+    
+   public  QueueAsLinkedList()  {
+       
+       front=null;
+       rear=null;
+    
+}
+    
+   private class Node {
+       
+       int data;
+       Node next;
+       
+      public Node(int data)
+       {
+           this.data=data;
+       } 
+       public void displayData(){
+       System.out.println("data=  +data");
+   }
+     
+   
+   }
+   public Node NewNode(int x)
+      {
+          Node n;
+          n= new Node(x);
+          n.data=x;
+          n.next=null;
+          return n;        
+      }
+   
+   public boolean isEmpty()
+   {
+       if(front==null)
+           return (true);
+       else
+           return(false);
+                   
+   }
+   public void insertdata(int x){
+ 
+       if(rear==null)
+       {
+           front=rear=NewNode(x);  
+           size++;
+           return;
+    
+       }
+       rear.next=NewNode(x);
+       rear=rear.next;
+       
+   }
+   
+   public int delete(){
+       if(isEmpty())
+       {
+           System.out.print("queue is empty");
+           return 0;
+       }
+       size--;
+       int l = front.data;
+       front=front.next;
+       if(front==null)
+       {
+           rear=null;
+       }
+           return l;
+      
+   }
+   
+   public void display()
+   {
+       Node current = front;
+       while(current!=null)
+       current.displayData();
+       current=current.next;      
+       
+   }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        QueueAsLinkedList Q = new QueueAsLinkedList();
+        Q.insertdata(4);
+        Q.insertdata(7);
+        System.out.println("displaying queue data");
+        Q.display();
+        System.out.println("the items of queue are removed");
+        Q.delete();
+                
+           
+    }
+    
+}
