@@ -1,0 +1,47 @@
+
+Aneela Bibi 
+Fa19-bse-049
+LAB TASK 25/11
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication3;
+import java.util.Scanner;
+
+/**
+ *
+ * @author AWAN
+ */
+public class JavaApplication3 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        int num;
+        Scanner output;
+        output = new Scanner (System.in);
+        System.out.println("please enter the num you want to convert into binary");
+        num=output.nextInt();
+        System.out.println("The binary equivalent of " 
+			+ num + "is " + covertIntoBinary( num));
+            
+    }
+    public static String covertIntoBinary (int value) {
+		String R = "";
+		return covertIntoBinary(value, R);
+	}
+
+
+   public static String covertIntoBinary(int value, String R) {
+		if (value / 2 == 0) 
+			return (value % 2) + R;
+		else
+			return covertIntoBinary(value / 2, (value % 2) + R); 
+	}
+    
+}
